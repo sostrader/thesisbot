@@ -1,15 +1,15 @@
 from settings import *
 from predict import preprocess_prediciton
 from utils.fuctions import *
-import sys
+
 
 model = retrain()
 
 while(1):
-    # if check_stop_time():
-    #     print('wating to pass opening market')
-    #     countdown(1200)
-    #     predict_count = 10
+    if check_stop_time():
+        print('wating to pass opening market')
+        countdown(1200)
+        predict_count = 10
         
           
     t = 60

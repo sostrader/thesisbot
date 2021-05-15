@@ -1,11 +1,4 @@
-from settings import (
-    iq, ej, gale_multiply, 
-    gale_seq, symbol, symbols, 
-    timeframe, seq_len, contract,
-     min_balance, min_payout, min_prob,
-     expire_time
-     )
-
+from settings import *
 import datetime
 import time
 from model import train_data
@@ -40,7 +33,7 @@ def countdown(t):
 #training fuction
 def retrain():
     
-    while  symbol,timeframe) < 60:
+    while train_data(symbol,timeframe) < 95:
         import os
         import sys
         import shutil
@@ -55,7 +48,7 @@ def retrain():
         except OSError:
             pass
             
-         iq,symbol,symbols,timeframe)
+        train_data(symbol,timeframe)
         
     else:
         model = tf.keras.models.load_model('models/ThesisBrain.h5')
