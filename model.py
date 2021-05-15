@@ -80,7 +80,7 @@ def preprocess_df(df):
 
 def train_data(symbol,timeframe):
     
-    df = mt.history("EURUSD","M1",70)
+    df = mt.history("EURUSD","M1",2)
     print("traning",df)
     
    
@@ -126,10 +126,8 @@ def train_data(symbol,timeframe):
     
     def build_model(hp):
         model = Sequential()
-        model.add(LSTM(hp.Int('units',
-                                        min_value=10,
-                                         max_value=50,
-                                        step=1), input_shape=(train_x.shape[1:]), return_sequences=True))
+        
+        model.add(LSTM(hp.Int('units', min_value=10, max_value=50, step=1), input_shape=(train_x.shape[1:]), return_sequences=True))
         model.add(Dropout(0.1))
         model.add(BatchNormalization())
 
